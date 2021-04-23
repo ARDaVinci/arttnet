@@ -1,0 +1,109 @@
+body {
+    background-image: url('images_css/artt_new.jpg');
+    background-size: cover;
+    z-index: -1;
+}
+
+
+
+div#login {
+    background-color: white;
+    border-style: solid;
+    border-color: #355E3B;
+    border-width: 5px;
+    color: #355E3B;
+    font-family: 'Shadows Into Light', cursive;
+}
+
+div.bonjour {
+    color: white;
+    font-family: 'Shadows Into Light', cursive;
+}
+
+div.photo {
+    color: #355E3B;
+    font-family: 'Shadows Into Light', cursive;
+}
+
+div#nav {
+    font-family: 'Amatic SC', cursive;
+    background-color: #355E3B;
+}
+
+
+ul#nav {
+    border-bottom-style: solid;
+    border-bottom-color: #355E3B;
+    border-bottom-width: 2px;
+}
+
+a.nav-link:link {
+  color: white;
+}
+
+a.nav-link:visited {
+  color: white;
+}
+
+a.nav-link:hover {
+    background-color: white;
+  color: #355E3B;
+}
+
+a.nav-link:active {
+  color: white;
+}
+
+a#pinakas:link {
+  color: #355E3B;
+}
+
+a#pinakas:visited {
+  color: #355E3B;
+}
+
+a#pinakas:hover {
+    background-color: white;
+  color: #355E3B;
+}
+
+a#pinakas:active {
+  color: #355E3B;
+}
+
+div.card {
+    border-style: solid;
+    border-color: #355E3B;
+}
+
+a#post:link {
+  color: white;
+}
+
+a#post:visited {
+  color: white;
+}
+
+a#post:hover {
+  color: white;
+}
+
+a#post:active {
+  color: white;
+}
+
+a.post:link {
+  color: white;
+}
+
+a.post:visited {
+  color: white;
+}
+
+a.post:hover {
+  color: white;
+}
+
+a.post:active {
+  color: white;
+}

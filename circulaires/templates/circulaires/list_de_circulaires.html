@@ -1,0 +1,57 @@
+{% extends 'principal1.html' %}
+{% load static %}
+
+{% block title %}
+Circulaires
+{% endblock %}
+
+{% block content %}
+
+
+{% if user.is_authenticated %}
+<div class="container-fluid">
+    <br>
+    <br>
+    <br>
+    <br>
+
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8"  id="login">
+            <h1>Circulaires</h1>
+
+                    <ul>
+                        {% for c in toutes_les_circulaires %}
+                        <li>
+                            <a href="{% static 'media/' %}{{c.file}}" id="pinakas">{{c.title}}</a>
+                        </li>
+                        {% if perms.circulaires %}
+                        {% if perms.circulaires.add_circulaire %}
+                        <a href="{% url 'circulaires:change_circ' c.id %}">Modifier</a>
+                        <a href="{% url 'circulaires:delete_circ' c.id %}">Supprimer</a>
+
+                        {% endif %}
+                        {% endif %}
+                        {% endfor %}
+                    </ul>
+            <br>
+            {% if perms.circulaires %}
+            {% if perms.circulaires.add_circulaire %}
+            <a class="btn btn-success" href="{% url 'circulaires:add_circ' %}" role="button">Ajouter</a>
+            {% endif %}
+            {% endif %}
+            <br>
+            <br>
+        </div>
+        <div class="col-2"></div>
+    </div>
+</div>
+
+
+
+
+{% endif %}
+<br><br><br>
+{% endblock %}

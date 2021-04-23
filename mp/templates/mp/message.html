@@ -1,0 +1,48 @@
+{% extends 'principal1.html' %}
+{% load static %}
+
+{% block title %}
+Message: {{message.title}}
+{% endblock %}
+
+{% block content %}
+
+
+{% if user.is_authenticated %}
+<div class="container-fluid">
+    <br>
+    <br>
+    <br>
+    <br>
+
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8"  id="login">
+            {% if messageprive.sender.username == user.username or messageprive.receiver.username == user.username %}
+            <h1>Messages privés:  </h1>
+                    <div class="card text-success bg-white">
+                        <div class="card-header text-white bg-success">
+                            <b><i>Titre:</i></b> {{messageprive.title}}
+                            <br>
+                            <div><b><i>De:</i></b> {{messageprive.sender.first_name}} {{messageprive.sender.last_name}} <b><i>à:</i></b> {{messageprive.receiver.first_name}} {{messageprive.receiver.last_name}}</div>
+                        </div>
+                        <b><i>Text: </i></b> {{messageprive.text}}
+                    </div>
+                    <br>
+            {% else %}
+            Vous n'avez aucun message privé.
+            {% endif %}
+            <br>
+        </div>
+        <div class="col-2"></div>
+    </div>
+</div>
+
+
+
+
+{% endif %}
+<br><br><br>
+{% endblock %}

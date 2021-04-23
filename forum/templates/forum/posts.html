@@ -1,0 +1,60 @@
+{% extends 'principal1.html' %}
+{% load static %}
+
+{% block title %}
+Forum
+{% endblock %}
+
+{% block content %}
+
+
+{% if user.is_authenticated %}
+<div class="container-fluid">
+    <br>
+    <br>
+    <br>
+    <br>
+
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8"  id="login">
+            <h1>Posts <a class="btn btn-success btn-sm" href="{% url 'posts:create_post' %}" role="button"><i class="bi bi-pencil-fill"></i></a>
+</h1>
+            {% if all_posts %}
+            <ul>
+                {% for post in all_posts %}
+                <li>
+                    <div class="card text-success bg-white">
+                        <div class="card-header text-white bg-success">
+                            <b><i>Titre:</i></b> <a href="{% url 'posts:post' post.id %}" id="post">{{post.title}}</a>
+                        </div>
+                            <b><i>Composé par:</i></b> {{post.sender.first_name}} {{post.sender.last_name}}
+                    </div>
+                    <br>
+
+                    {% if post.sender.username == user.username %}
+                    <a class="btn btn-success btn-sm" href="{% url 'posts:update_post' post.id %}" role="button"><i class="bi bi-pencil-fill"></i></a>
+                    <a class="btn btn-success btn-sm" href="{% url 'posts:delete_post' post.id %}" role="button"><i class="bi bi-trash-fill"></i></a>
+
+                    {% endif %}
+                    <br>
+                </li>
+                <br>
+                {% endfor %}
+            </ul>
+            {% else %}
+            Il n'y a aucun post
+            {% endif %}
+        </div>
+        <div class="col-2"></div>
+    </div>
+</div>
+
+
+
+
+{% endif %}
+<br><br><br>
+{% endblock %}
